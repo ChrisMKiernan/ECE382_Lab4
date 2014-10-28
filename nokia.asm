@@ -1,8 +1,9 @@
 ;-------------------------------------------------------------------------------
-;	Chris Coulston
-;	Fall 2014
+;	Chris Kiernan
+;	ECE382 Lab4
 ;	MSP430G2553
 ;	Put some pixels on the Nokia 1202 Diaplsy
+;	Now modified from Dr Coulston's code to include the color of the block
 ;-------------------------------------------------------------------------------
 	.cdecls C,LIST,"msp430.h"		; BOILERPLATE	Include device header file
 
@@ -336,6 +337,7 @@ nextDD:
 ;	Name:		drawBlock
 ;	Inputs:		R12 row to draw block
 ;				R13	column to draw block
+;				R14 color of the block drawn
 ;	Outputs:	none
 ;	Purpose:	draw an 8x8 block of black pixels at screeen cordinates	8*row,8*col
 ;				The display screen, for the purposes of this routine, is divided
