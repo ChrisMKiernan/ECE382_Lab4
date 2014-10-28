@@ -358,15 +358,15 @@ drawBlock:
 	call	#setAddress			; move cursor to upper left corner of block
 
 	mov		#1, R12
-	cmp		#2, R14
+	cmp		#2, R14				; in my C code, 2 is equated to "white"
 	jz		drawWhite
 	jmp		drawBlack
 drawWhite:
-	mov		#0x00, R13
+	mov		#0x00, R13			; 0x00 is essentially clearing the pixels in a column
 	mov.w	#0x08, R5
 	jmp		loopdB
 drawBlack:
-	mov		#0xFF, R13
+	mov		#0xFF, R13			; whereas 0xFF creates solid columns
 	mov.w	#0x08, R5			; loop all 8 pixel columns
 loopdB:
 	call	#writeNokiaByte		; draw the pixels
